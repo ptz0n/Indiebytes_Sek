@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Indiebytes_Sek>
+            <version>0.0.1</version>
+        </Indiebytes_Sek>
+    </modules>
+    <global>
+        <models>
+            <sek>
+                <class>Indiebytes_Sek_Model</class>
+            </sek>
+			<core>
+				<rewrite>
+					<locale>Indiebytes_Sek_Model_Locale</locale>
+				</rewrite>
+			</core>
+        </models>
+    </global>
+</config>
