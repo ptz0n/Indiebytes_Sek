@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Indiebytes_Sek>
-            <version>0.0.1</version>
+            <version>0.0.2</version>
         </Indiebytes_Sek>
     </modules>
     <global>
@@ -10,11 +10,16 @@
             <sek>
                 <class>Indiebytes_Sek_Model</class>
             </sek>
-			<core>
-				<rewrite>
-					<locale>Indiebytes_Sek_Model_Locale</locale>
-				</rewrite>
-			</core>
+            <core>
+                <rewrite>
+                    <locale>Indiebytes_Sek_Model_Core_Locale</locale>
+                </rewrite>
+            </core>
+            <directory>
+                <rewrite>
+                    <currency>Indiebytes_Sek_Model_Directory_Currency</currency>
+                </rewrite>
+            </directory>
         </models>
     </global>
 </config>

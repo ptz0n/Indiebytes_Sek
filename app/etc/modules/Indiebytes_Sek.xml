@@ -1,9 +1,13 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <config>
-	<modules>
-		<Indiebytes_Sek>
-			<active>true</active>
-			<codePool>community</codePool>
-		</Indiebytes_Sek>
-	</modules>
+    <modules>
+        <Indiebytes_Sek>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Core />
+                <Mage_Locale />
+            </depends>
+        </Indiebytes_Sek>
+    </modules>
 </config>
