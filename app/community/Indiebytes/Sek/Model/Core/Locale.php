@@ -16,10 +16,24 @@
 class Indiebytes_Sek_Model_Core_Locale extends Mage_Core_Model_Locale {
 
     /**
+     * Currency setup
+     *
+     * @var    array
+     *
+     * @access private
+     * @static
+     * @author Erik Pettersson <erik@improove.se>
+     */
+    protected static $_currencySetup = array(
+        'SEK' => array(
+            'position' => 'right',
+            'locale' => 'sv_SE'));
+
+    /**
      * Create Zend_Currency object for current locale
      *
-     * @param   string $currency
-     * @return  Zend_Currency
+     * @param  string $currency
+     * @return Zend_Currency
      */
     public function currency($currency) {
         Varien_Profiler::start('locale/currency');
@@ -36,14 +50,14 @@ class Indiebytes_Sek_Model_Core_Locale extends Mage_Core_Model_Locale {
                 $currencyObject->setFormat($options);
             }
 
-            if ($currency == 'SEK') {
-                $currencyObject->setFormat(
-                        array(
-                            'position' => $currencyObject::RIGHT,
-                            'locale' => 'sv_SE',
-                            'display' => $currencyObject::USE_SHORTNAME
-                        )
-                );
+            if(isset(self::$_currencySetup[$currency])) {
+                $format = self::$_currencySetup[$currency];
+
+                $format['position'] = $format['position'] == 'right' ?
+                    $currencyObject::RIGHT : $currencyObject::LEFT;
+                $format['display']  = $currencyObject::USE_SYMBOL;
+
+                $currencyObject->setFormat($format);
             }
 
             self::$_currencyCache[$this->getLocaleCode()][$currency] = $currencyObject;
